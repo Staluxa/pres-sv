@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Svelte</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            --background-color: white;
+            --text-color: black;
+        }
+
+        .slide {
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .slide p {
+            margin: 0;
+        }
+
+        img.right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Svelte</h1>
+        <p>Write less, do more</p>
+    </header>
+
+    <section class="slide clear">
+        <h2>Oleksandr Kovtun</h2>
+        <p>Frontend developer @ <a href="https://astoundcommerce.com/us/home/">Astound Commerce</a></p>
+        <p>Frontend Build Engineer for <a href="https://www.fluidconfigure.com/">Configure</a> team</p>
+        <img class="right" src="pictures/photo.png" alt="Photo of meself">
+    </section>
+
+    <section class="slide clear">
+        <img src="pictures/logo-svelte.png" alt="Svelte v3 logo">
+        <h2 style="float: right; font-size: 4.5em;">Svelte v3</h2>
+        <ul style="float: right; margin-top: -25%;">
+            <li class="next">Component framework</li>
+            <li class="next">Magically disappearing framework</li>
+            <li class="next"><b>Compiler</b></li>
+        </ul>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="next shout">HYPE</h2>
+        <h2 class="shout">HYPE</h2>
+        <style>
+            .next.shout {
+                display: none;
+            }
+            .next.shout.active {
+                display: block;
+                font-size: 300px;
+            }
+            .next.shout.active ~ .shout {
+                display: none;
+            }
+            .component-bg {
+                background: #f6fafd;
+            }
+        </style>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover width" src="pictures/YGLF.png" alt="YGLF talks">
+    </section>
+
+    <section class="slide clear">
+        <img class="cover height" src="pictures/dan-async.png" alt="Jsconf 18 | Async render in react">
+    </section>
+
+    <section class="slide boxes clear">
+        <div class="box" style="background: #40b3ff;">
+            <a href="https://svelte.dev/blog/virtual-dom-is-pure-overhead" slot="two"><h2>No virtual DOM</h2>
+                <p>Svelte compiles your code to tiny, framework-less vanilla JS — your app starts fast and stays fast</p>
+            </a>
+        </div>
+        <div class="box" style="background: #676778;">
+            <a href="https://svelte.dev/blog/svelte-3-rethinking-reactivity" slot="three"><h2>Truly reactive</h2>
+                <p>No more complex state management libraries — Svelte brings reactivity to JavaScript itself</p>
+            </a>
+        </div>
+        <div class="box" style="background: #ff3e00;">
+            <a href="https://svelte.dev/blog/write-less-code" slot="one"><h2>Write less code</h2>
+                <p>Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript</p>
+            </a>
+        </div>
+        <style>
+            .boxes {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                padding: 20px;
+            }
+            .box {
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .box h2,
+            .box a,
+            .box p {
+                color: var(--background-color);
+            }
+            .box a {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            .box p {
+                flex-grow: 1;
+            }
+            .slide iframe {
+                width: 200%;
+                height: 200%;
+                transform: scale(0.5) translate(-50%, -50%);
+            }
+            .slide iframe.regular {
+                width: 100%;
+                height: 100%;
+                transform: none;
+            }
+            .slide h2 {
+                margin-bottom: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Render strategy</h2>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover width" src="pictures/vdom.png" alt="vdom comparison">
+    </section>
+
+    <section class="slide" style="padding-left: 50px;">
+        <img src="pictures/invalidate-1.png" alt="invalidate example">
+        <img class="next" src="pictures/invalidate-2.png" alt="invalidate example">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Benchmarks</h2>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover width" src="pictures/vdom-bench.png" alt="benchmark render speed">
+    </section>
+
+    <section class="slide" style="padding: 0;">
+        <iframe title="Time slicing demo" src="https://rethinking-reactivity.surge.sh/time-slicing/" style="flex: 1 1 0%; border: none;"></iframe>
+    </section>
+
+    <section class="slide" style="padding: 0;">
+        <iframe title="Time slicing demo" src="https://rethinking-reactivity.surge.sh/svelte-svg" style="flex: 1 1 0%; border: none;"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Reactivity</h2>
+    </section>
+
+    <section class="slide component-bg">
+        <img class="cover width" src="pictures/reactive.png" alt="reactivity examples">
+        <span class="next hide1"></span>
+        <span class="next hide2"></span>
+        <span class="next hide3"></span>
+        <span class="hide4 component-bg"></span>
+        <style>
+            .hide4 {
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 72%;
+            }
+            .hide1.active ~ .hide4 {
+                height: 37%;
+            }
+            .hide2.active ~ .hide4 {
+                height: 28%;
+            }
+            .hide3.active ~ .hide4 {
+                height: 0%;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Less code</h2>
+    </section>
+
+    <section class="slide component-bg">
+        <img class="cover height" src="pictures/vue-component.png" alt="vue component example">
+    </section>
+
+    <section class="slide component-bg">
+        <img class="cover height" src="pictures/svelte-component.png" alt="svelte component example">
+    </section>
+    
+    <section class="slide">
+        <h2 style="margin-bottom: 0"><a href="https://dev.to/timdeschryver/my-love-letter-to-xstate-and-statecharts-287b">XState table</a></h2>
+        <small style="font-size: 0.75em;">by Tim Deschryver, NgRx team member, Writer for AngularInDepth</small>
+
+        <ul class="next" style="margin-top: 50px;">
+            <li><b>Angular</b> - 3,905b</li>
+            <li><b>React</b> - 3,332b</li>
+            <li><b>Vue</b> - 2,501b</li>
+            <li><b>Svelte</b> - 1,814b</li>
+        </ul>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover height" src="pictures/realapp-bench.png" alt="benchmark file size">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Real component</h2>
+    </section>
+
+    <section class="slide component-bg">
+        <img class="cover height" src="pictures/component-1.png" alt="component demo">
+    </section>
+
+    <section class="slide component-bg">
+        <img class="cover height" src="pictures/component-2.png" alt="component demo">
+    </section>
+
+    <section class="slide">
+        <h2>Lifecycle</h2>
+        <ul>
+            <li><b>onMount</b></li>
+            <li><b>onDestroy</b></li>
+            <li><b>beforeUpdate</b></li>
+            <li><b>afterUpdate</b></li>
+            <li class="next"><b>await tick()</b></li>
+        </ul>
+    </section>
+
+    <section class="slide clear" style="padding: 0;">
+        <iframe title="Time slicing demo" src="https://svelte.dev/repl/tick" class="regular" style="flex: 1 1 0%; border: none;"></iframe>
+    </section>
+
+    <section class="slide component-bg">
+        <img class="cover height" src="pictures/component-1.png" alt="component demo">
+    </section>
+
+    <section class="slide">
+        <h2>Stores</h2>
+        <ul>
+            <li><b>Writable</b></li>
+            <li><b>Readable</b></li>
+            <li><b>Derived</b></li>
+            <li><b>Custom</b></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Pros</h2>
+        <ul>
+            <li>Performance</li>
+            <li>Source/Bundle size</li>
+            <li>Tree shaking</li>
+            <li>SSR</li>
+            <li>Scoped styles</li>
+            <li>Stores</li>
+            <li>A11y inspector</li>
+            <li>Animations</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Cons</h2>
+        <ul>
+            <li>Young ecosystem</li>
+            <li>No typescript, for now</li>
+            <li>No suspense, for now. Maybe ever.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Where to start?</h2>
+        <ul>
+            <li><a href="https://svelte.dev/tutorial/basics">Svelte.dev</a></li>
+            <li><code>npx degit sveltejs/template my-svelte-project</code></li>
+            <li><a href="https://sapper.svelte.dev/docs">Sapper</a></li>
+            <li class="next"><a href="http://vinnytsiajs.org/">Vin.JS</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Questions?</h2>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Made in shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.min.js"></script>
+
+</body>
+</html>
